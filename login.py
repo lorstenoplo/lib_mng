@@ -4,10 +4,12 @@ from tkinter import messagebox
 import ast
 import utils
 
+#ctypes.windll.shcore.SetProcessDpiAwareness(1)
+
 window = Tk()
 window.title("Login")
-window.geometry("1200x650")
-window.configure(bg="#fff") 
+window.geometry("1200x650+350+200")
+window.configure(bg="#fff")
 window.resizable(False,False)
 #-----------------------------------
 def login():
@@ -19,22 +21,23 @@ def login():
    if result:
       messagebox.showinfo('Sign In','Successfully Logged In')
       window.destroy()
-      import main
+      if username=='admin':
+         import main1
    else:
-      messagebox.showerror('Sign In','Invalid credentials')
+      messagebox.showerror('Sig In','Invalid credentials')
 
 def show_signup():
    window.destroy()
    import signup
 
-frame=Frame(window,width=500,height=400,bg='white')
+frame=Frame(window,width=500,height=500,bg='white')
 frame.place(x=580,y=100)
 
 img=PhotoImage(file='login.png')
 Label(window,image=img,border=0,bg='white').place(x=120,y=140)
 
 heading=Label(frame,text='Sign In', fg='#57a1f8',bg='white',font=('Cascadia Mono SemiBold',26,'bold'))
-heading.place(x=180,y=20)
+heading.place(x=100,y=0)
 
 #---------------------------------
 def on_enter(e):
@@ -68,12 +71,11 @@ pwd.bind('<FocusOut>',on_leave)
 Frame(frame,width=430,height=2,bg='black').place(x=25,y=220)
 #---------------------------------
 
-Button(frame,width=30,pady=7,text='Sign In',bg='#57a1f8',fg='white',
-       border=0,command=login,font=('Cascadia Mono SemiBold',11)).place(x=22,y=275)
+Button(frame,width=33,pady=7,text='Sign In',bg='#57a1f8',fg='white',border=0,command=login,font=('Cascadia Mono SemiBold',11)).place(x=22,y=275)
 label=Label(frame,text='Dont have an account?',fg='black',bg='white',font=('Cascadia Mono Light',10))
 label.place(x=60,y=345)
 
 signup=Button(frame,width=7,text='Sign Up',border=0,bg='white',cursor='hand2',fg='#57a1f8',font=('Cascadia Mono Light',9),command=show_signup)
-signup.place(x=380,y=345)
+signup.place(x=325,y=343)
 
 window.mainloop()
