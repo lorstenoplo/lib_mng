@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox
 from db import Database
 
-db = Database("Employee.db")
+db = Database("Books.db")
 root = Tk()
 root.title("library Management System")
 root.geometry("1920x1080+0+0")
@@ -82,7 +82,7 @@ def dispalyAll():
         tv.insert("", END, values=row)
 
 
-def add_employee():
+def add_book():
     if txtName.get() == "" or txtAge.get() == "" or txtDoj.get() == "" or txtEmail.get() == "" or comboGender.get() == "" or txtContact.get() == "" or txtAddress.get(
             1.0, END) == "":
         messagebox.showerror("Erorr in Input", "Please Fill All the Details")
@@ -95,7 +95,7 @@ def add_employee():
 
 
 
-def update_employee():
+def update_book():
     if txtName.get() == "" or txtAge.get() == "" or txtDoj.get() == "" or txtEmail.get() == "" or comboGender.get() == "" or txtContact.get() == "" or txtAddress.get(
             1.0, END) == "":
         messagebox.showerror("Erorr in Input", "Please Fill All the Details")
@@ -108,7 +108,7 @@ def update_employee():
     dispalyAll()
 
 
-def delete_employee():
+def delete_book():
     db.remove(row[0])
     clearAll()
     dispalyAll()
@@ -126,12 +126,12 @@ def clearAll():
 
 btn_frame = Frame(entries_frame, bg="#555d50")
 btn_frame.grid(row=6, column=0, columnspan=4, padx=10, pady=10, sticky="w")
-btnAdd = Button(btn_frame, command=add_employee, text="Add Details", width=10, font=("Calibri", 16, "bold"), fg="black",
+btnAdd = Button(btn_frame, command=add_book, text="Add Details", width=10, font=("Calibri", 16, "bold"), fg="black",
                 bg="#16a085", bd=0).grid(row=0, column=0)
-btnEdit = Button(btn_frame, command=update_employee, text="Update Details", width=15, font=("Calibri", 16, "bold"),
+btnEdit = Button(btn_frame, command=update_book, text="Update Details", width=15, font=("Calibri", 16, "bold"),
                  fg="black", bg="#2980b9",
                  bd=0).grid(row=0, column=1, padx=10)
-btnDelete = Button(btn_frame, command=delete_employee, text="Delete Details", width=15, font=("Calibri", 16, "bold"),
+btnDelete = Button(btn_frame, command=delete_book, text="Delete Details", width=15, font=("Calibri", 16, "bold"),
                    fg="black", bg="#c0392b",
                    bd=0).grid(row=0, column=2, padx=10)
 btnClear = Button(btn_frame, command=clearAll, text="Clear Details", width=15, font=("Calibri", 16, "bold"), fg="black",
