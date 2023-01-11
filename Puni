@@ -1,0 +1,11 @@
+create table employee (empno int(4),ename varchar(20),job varchar(20),salary int(20),dojoin date ,department varchar (20));
+insert into employee values (1001 , 'scott', 'manager',90000,2010/10/01,'accounts');
+desc employee;
+select * from employee;
+insert into employee values (1002 , 'tom', 'clerk',34000,2010/10/01,'admin');
+insert into employee values (1003 , 'joy', 'clerk',32000,2010/10/01,'admin');
+insert into employee values (1004 , 'sam', 'salesman',40000,2010/10/01,'sales');
+
+
+desc employee;
+select *from employee;
